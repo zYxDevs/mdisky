@@ -1,15 +1,4 @@
-# Mdisky
 
-
-<p align="center">
-
-![Fork](https://img.shields.io/github/forks/kevinnadar22/mdisky?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/kevinnadar22/mdisky?color=%23&style=for-the-badge)
-![Issues](https://img.shields.io/github/issues/kevinnadar22/mdisky?style=for-the-badge)
-
-</p>
-
----
 
 <!-- PROJECT LOGO -->
 <br />
@@ -35,11 +24,8 @@
 
 ---
 
-
-
+# Mdisky
 An Unofficial Python version of Mdisk API wrapper. Used to convert and rename Mdisk Files.
-
-
 
 
 ## Installation
