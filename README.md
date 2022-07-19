@@ -103,7 +103,7 @@ mdisk = Mdisk("Your MDisk API Key")
 ### Convert a single URL
 
 ```python
-  convert(link, silently_fail) -> str
+convert(link, silently_fail) -> str
 ```
 
 | Parameter | Type     | Description                |
@@ -126,7 +126,7 @@ asyncio.run(main())
 ### Bulk Convert
 
 ```python
-  bulk_convert(urls:list, silently_fail) -> list
+bulk_convert(urls:list, silently_fail) -> list
 ```
 
 | Parameter | Type     | Description                       |
@@ -149,7 +149,7 @@ asyncio.run(main())
 ### Convert from Text
 
 ```python
-  convert_from_text(text:str, silently_fail:bool=True)
+convert_from_text(text:str, silently_fail:bool=True)
 ```
 
 | Parameter | Type     | Description                       |
@@ -177,7 +177,7 @@ Ep 2:-https://mdisk.me/convertor/16x9/5JIit7
 ### Get filename
 
 ```python
-  get_filename(link:str)
+get_filename(link:str)
 ```
 
 | Parameter | Type     | Description                       |
@@ -201,7 +201,7 @@ asyncio.run(main())
 ### Change filename
 
 ```python
-  change_filename(link, filename)
+change_filename(link, filename)
 ```
 
 
