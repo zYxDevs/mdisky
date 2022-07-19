@@ -47,13 +47,13 @@ An Unofficial Python version of Mdisk API wrapper. Used to convert and rename Md
 Install mdisky with pip
 
 ```bash
-  pip install mdisky
+pip install mdisky
 ```
     
 To Upgrade
 
 ```bash
-  pip install --upgrade mdisky
+pip install --upgrade mdisky
 ```
     
     
