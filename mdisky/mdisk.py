@@ -5,7 +5,7 @@ import asyncio
 import requests
 from typing import Any, List
 from urllib.parse import urlparse
-from exception import LinkInvalid
+from .exception import LinkInvalid
 
 
 class Mdisk:
