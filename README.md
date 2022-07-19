@@ -49,8 +49,9 @@ pip install --upgrade mdisky
 from mdisky import Mdisk
 import asyncio
 
+mdisk = Mdisk('us5CqX8oandALtQ86FLq')
+
 async def main():
-    mdisk = Mdisk('us5CqX8oandALtQ86FLq')
     link = await mdisk.convert('https://mdisk.me/convertor/16x9/H331KO')
     print(link)
 
