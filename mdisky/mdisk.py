@@ -20,7 +20,7 @@ class Mdisk:
             raise Exception("API key not provided")
 
 
-    async def convert(self, link:str, silently_fail:bool | None =False) -> str:
+    async def convert(self, link:str, silently_fail:bool = False) -> str:
         """
         It takes a link, checks if it's a valid mdisk link, and if it is, it sends a POST request to the
         mdisk API with the link and the API key, and returns the sharelink
