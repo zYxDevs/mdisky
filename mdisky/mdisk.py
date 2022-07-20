@@ -3,7 +3,6 @@
 import re
 import asyncio
 import requests
-from typing import Any, List
 from urllib.parse import urlparse
 from .exception import LinkInvalid
 
@@ -51,7 +50,7 @@ class Mdisk:
             return await self.__error_handler(url=link, silently_fail=silently_fail, exception=LinkInvalid)
 
 
-    async def bulk_convert(self, urls:list, silently_fail:bool=True) -> List:
+    async def bulk_convert(self, urls:list, silently_fail:bool=True) -> list:
         """
         It converts a list of URLs to a list of shortened URLs.
         
@@ -149,7 +148,7 @@ class Mdisk:
         return link.split('/')[-1]
 
 
-    async def __error_handler(self, url:str, silently_fail:bool, exception=Exception, message="Some error occurred during converting: %s") -> Any | Exception:
+    async def __error_handler(self, url:str, silently_fail:bool, exception=Exception, message="Some error occurred during converting: %s"):
         """
         If the URL is valid, return it. If it's not, return it or raise an exception, depending on the value
         of the `silently_fail` parameter
