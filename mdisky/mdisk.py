@@ -46,7 +46,7 @@ class Mdisk:
             except requests.exceptions.ConnectionError as errc:
                 print("Error Connecting: ",errc)
             except Exception as e:
-                return await self.__error_handler(url=e, silently_fail=silently_fail, exception=Exception)
+                return await self.__error_handler(url=link, silently_fail=silently_fail, exception=Exception)
         else: 
             return await self.__error_handler(url=link, silently_fail=silently_fail, exception=LinkInvalid)
 
@@ -149,7 +149,7 @@ class Mdisk:
         return link.split('/')[-1]
 
 
-    async def __error_handler(self, url:str, silently_fail:bool, exception=Exception) -> Any | Exception:
+    async def __error_handler(self, url:str, silently_fail:bool, exception=Exception, message="Some error occurred during converting: %s") -> Any | Exception:
         """
         If the URL is valid, return it. If it's not, return it or raise an exception, depending on the value
         of the `silently_fail` parameter
@@ -165,7 +165,7 @@ class Mdisk:
         if silently_fail:
             return url
         else:
-            raise exception(url)
+            raise exception(message % url)
 
 
     @staticmethod
