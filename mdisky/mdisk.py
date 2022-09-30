@@ -32,22 +32,21 @@ class Mdisk:
         :return: The link to the file on mdisk.
         """
         is_mdisk_link = await self.is_mdisk_link(link)
-        if is_mdisk_link:
-            try:
-                data = {
-                    'token': self.__api_key,
-                    'link':link
-                }
-                res = requests.post(self.__base_url, json = data)
-                return res.json()['sharelink']
-            except requests.exceptions.Timeout as errt:
-                print("Timeout Error: ",errt)
-            except requests.exceptions.ConnectionError as errc:
-                print("Error Connecting: ",errc)
-            except Exception as e:
-                return await self.__error_handler(url=link, silently_fail=silently_fail, exception=Exception)
-        else: 
+        if not is_mdisk_link:
             return await self.__error_handler(url=link, silently_fail=silently_fail, exception=LinkInvalid)
+        try:
+            data = {
+                'token': self.__api_key,
+                'link':link
+            }
+            res = requests.post(self.__base_url, json = data)
+            return res.json()['sharelink']
+        except requests.exceptions.Timeout as errt:
+            print("Timeout Error: ",errt)
+        except requests.exceptions.ConnectionError as errc:
+            print("Error Connecting: ",errc)
+        except Exception as e:
+            return await self.__error_handler(url=link, silently_fail=silently_fail, exception=Exception)
 
 
     async def bulk_convert(self, urls:list, silently_fail:bool=True) -> list:
@@ -120,7 +119,7 @@ class Mdisk:
         :param filename: The name of the file you want to change to
         :return: The changed filename is being returned.
         """
-        
+
         if not await self.is_mdisk_link(link):
             raise LinkInvalid(link)
 
@@ -177,6 +176,4 @@ class Mdisk:
         :return: True if the link is a valid mdisk link, False otherwise
         """
         domain = urlparse(link).netloc
-        if 'mdisk.me' in domain:
-            return True
-        return False
+        return 'mdisk.me' in domain
